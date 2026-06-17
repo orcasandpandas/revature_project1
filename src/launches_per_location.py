@@ -11,7 +11,6 @@ if __name__ == '__main__':
 
 
     df["Success"] = df["Status Mission"].str.strip() == "Success"
-    #remove na rocket rows
     stats = df.groupby("Location").agg(
         total=("Location", "size"),
     )

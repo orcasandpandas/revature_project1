@@ -33,7 +33,7 @@ if __name__ == '__main__':
     ax.set_xticks(list(x))
     ax.set_xticklabels(companies, rotation=45, ha="right")
     ax.set_xlabel("Company")
-    ax.set_ylabel("Total Failure Cost")
+    ax.set_ylabel("Total Failure Cost ($M)")
     ax.set_title("Cost of failures per company")
 
     plt.tight_layout()
