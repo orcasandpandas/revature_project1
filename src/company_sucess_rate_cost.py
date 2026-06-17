@@ -23,8 +23,6 @@ if __name__ == '__main__':
     stats: pd.DataFrame = stats[stats["success_rate"] > 0]
     stats.sort_values(by="cost_per_success_rate", ascending=False, inplace=True)
 
-    print(stats)
-
     companies = stats.index
     x = range(len(companies))
     bar_width = 0.4
