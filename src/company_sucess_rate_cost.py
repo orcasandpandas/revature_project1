@@ -30,7 +30,8 @@ if __name__ == '__main__':
     bar_width = 0.4
 
     fig, ax = plt.subplots(figsize=(14, 6))
-    ax.bar(x, stats["cost_per_success_rate"], color="blue")
+    bars = ax.bar(x, stats["cost_per_success_rate"], color="blue")
+    ax.bar_label(bars, labels=[f"{(r * 100):.1f}%" for r in stats["success_rate"]], padding=3)
     ax.set_xticks(list(x))
     ax.set_xticklabels(companies, rotation=45, ha="right")
     ax.set_xlabel("Company")
