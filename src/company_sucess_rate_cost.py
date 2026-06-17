@@ -18,7 +18,7 @@ if __name__ == '__main__':
         avg_cost=("Rocket", "mean"),
     )
 
-    stats["cost_per_success_rate"] = stats["avg_cost"] / stats["success_rate"]
+    stats["cost_per_success_rate"] = stats["avg_cost"] / (stats["success_rate"] * 100)
     #remove companies with no successful launches
     stats: pd.DataFrame = stats[stats["success_rate"] > 0]
     stats.sort_values(by="cost_per_success_rate", ascending=False, inplace=True)
@@ -33,8 +33,8 @@ if __name__ == '__main__':
     ax.set_xticks(list(x))
     ax.set_xticklabels(companies, rotation=45, ha="right")
     ax.set_xlabel("Company")
-    ax.set_ylabel("Cost per Unit Success Rate (M$)")
-    ax.set_title("Mission Cost per Success Rate by Company")
+    ax.set_ylabel("Cost per Percentage Point of Success Rate (M$)")
+    ax.set_title("Cost per Percentage Point per Success Rate by Company")
 
     plt.tight_layout()
     plt.savefig(os.path.join(os.path.dirname(__file__), "..", "output", "mission_cost_per_success_rate.png"))
